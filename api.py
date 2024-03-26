@@ -9,6 +9,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.chains import LLMChain
 from langchain_openai import OpenAI
+from langchain.chat_models import ChatOpenAI
 import os
 from dotenv import load_dotenv
 from threading import Lock
@@ -45,7 +46,7 @@ prompt_template = PromptTemplate(
     input_variables=["context", "query"],
     template=template
 )
-language_model = OpenAI()
+language_model = ChatOpenAI(model_name="gpt-3.5-turbo-0125")
 
 llm_chain = LLMChain(
     llm=language_model,
