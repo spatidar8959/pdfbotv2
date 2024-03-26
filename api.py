@@ -9,7 +9,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.chains import LLMChain
 from langchain_openai import OpenAI
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 import os
 from dotenv import load_dotenv
 from threading import Lock
@@ -34,7 +34,7 @@ user_id = None
 
 template = """
 You are helpful AI question answering Assistant.You read the context provide by user and generate answer of the user query.
-If user ask question out of context tell the user "This is not given in the context" or give answer in your term.And dont disclose 
+If user ask question out of context tell the user "This is not given in the context" and make the answer by your own.And dont disclose 
 internal information.explain every user query or question in brief details.
 
 # Context: {context}
